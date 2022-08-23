@@ -9,3 +9,12 @@ export const MapContainer = styled.div`
     width: 100%;
   }
 `;
+
+export const InfoWindowContainer = styled.div`
+  padding: 12px;
+  background-color: white;
+`;
+
+export const InfoWindowContent = styled.div`
+  font-size: 14px;
+`;

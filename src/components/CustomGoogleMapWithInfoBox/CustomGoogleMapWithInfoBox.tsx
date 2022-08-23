@@ -1,7 +1,7 @@
 import { GoogleMap, InfoWindow, Marker } from '@react-google-maps/api';
 import { useCallback, useMemo, useRef, useState } from 'react';
 import { markerData } from '../../data/data';
-import { MapContainer } from './CustomGoogleMapWithInfoBox.styled';
+import { InfoWindowContainer, InfoWindowContent, MapContainer } from './CustomGoogleMapWithInfoBox.styled';
 
 type LatLngLiteral = google.maps.LatLngLiteral;
 type MapOptions = google.maps.MapOptions;
@@ -42,14 +42,9 @@ export const CustomGoogleMap = () => {
                   setIsOpen(false);
                 }}
               >
-                <div
-                  style={{
-                    backgroundColor: 'white',
-                    padding: '12px',
-                  }}
-                >
-                  <div style={{ fontSize: '14px' }}>{infoBoxData.address}</div>
-                </div>
+                <InfoWindowContainer>
+                  <InfoWindowContent>{infoBoxData.address}</InfoWindowContent>
+                </InfoWindowContainer>
               </InfoWindow>
             )}
           </Marker>
