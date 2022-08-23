@@ -30,6 +30,10 @@
       "type": "build"
     },
     {
+      "name": "@types/styled-components",
+      "type": "build"
+    },
+    {
       "name": "@typescript-eslint/eslint-plugin",
       "version": "^5",
       "type": "build"
@@ -75,6 +79,10 @@
       "type": "build"
     },
     {
+      "name": "@react-google-maps/api",
+      "type": "runtime"
+    },
+    {
       "name": "react",
       "type": "runtime"
     },
@@ -83,8 +91,17 @@
       "type": "runtime"
     },
     {
+      "name": "react-router-dom",
+      "version": "6",
+      "type": "runtime"
+    },
+    {
       "name": "react-scripts",
       "version": "^5",
+      "type": "runtime"
+    },
+    {
+      "name": "styled-components",
       "type": "runtime"
     },
     {

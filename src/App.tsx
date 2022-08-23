@@ -1,22 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { useLoadScript } from '@react-google-maps/api';
+import { Routes, Route } from 'react-router-dom';
+import { CustomGoogleMap } from './components/CustomGoogleMapWithInfoBox';
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
+  useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY || '',
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/map-with-infobox" element={<CustomGoogleMap />} />
+      </Routes>
     </div>
   );
 }
