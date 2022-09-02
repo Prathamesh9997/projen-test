@@ -1,7 +1,8 @@
 import { GoogleMap, InfoWindow, Marker } from '@react-google-maps/api';
 import { useCallback, useMemo, useRef, useState } from 'react';
 import { markerData } from '../../data/data';
-import { InfoWindowContainer, InfoWindowContent, MapContainer } from './CustomGoogleMapWithInfoBox.styled';
+import { MapContainer } from '../../globalStyles/MapContainer';
+import { InfoWindowContainer, InfoWindowContent } from './CustomGoogleMapWithInfoBox.styled';
 
 type LatLngLiteral = google.maps.LatLngLiteral;
 type MapOptions = google.maps.MapOptions;
@@ -12,7 +13,7 @@ type infoBoxObject = {
   address: string;
 };
 
-export const CustomGoogleMap = () => {
+export const CustomGoogleMapWithInfoBox = () => {
   const mapRef = useRef<GoogleMap>();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [infoBoxData, setInfoBoxData] = useState<infoBoxObject>();
@@ -21,18 +22,27 @@ export const CustomGoogleMap = () => {
 
   const onLoad = useCallback((map: any) => (mapRef.current = map), []);
   const handleMarkerClick = (id: number, lat: number, lng: number, address: string) => {
+    mapRef.current?.panTo({ lat, lng });
+
     setInfoBoxData({ id, lat, lng, address });
     setIsOpen(true);
   };
 
   return (
     <MapContainer>
-      <GoogleMap zoom={10} center={center} mapContainerClassName="map-container" onLoad={onLoad} options={options}>
+      <GoogleMap
+        zoom={10}
+        center={center}
+        mapContainerClassName="map-container-infobox"
+        onLoad={onLoad}
+        options={options}
+      >
         {markerData.map((mark, ind) => (
           <Marker
             key={ind}
             position={{ lat: mark.lat, lng: mark.lon }}
-            onMouseOver={() => {
+            icon="https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
+            onClick={() => {
               handleMarkerClick(ind, mark.lat, mark.lon, mark.address);
             }}
           >

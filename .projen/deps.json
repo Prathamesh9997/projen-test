@@ -79,6 +79,10 @@
       "type": "build"
     },
     {
+      "name": "@reach/combobox",
+      "type": "runtime"
+    },
+    {
       "name": "@react-google-maps/api",
       "type": "runtime"
     },
@@ -102,6 +106,10 @@
     },
     {
       "name": "styled-components",
+      "type": "runtime"
+    },
+    {
+      "name": "use-places-autocomplete",
       "type": "runtime"
     },
     {

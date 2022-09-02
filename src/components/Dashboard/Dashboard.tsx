@@ -7,7 +7,7 @@ const Dashboard = () => {
         <Link to="/map-with-infobox">Map With InfoBox</Link>
       </li>
       <li>
-        <Link to="/">Map With Directions</Link>
+        <Link to="/map-with-directions">Map With Directions & Live Tracking</Link>
       </li>
     </ul>
   );
